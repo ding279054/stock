@@ -1,0 +1,10 @@
+
+  <h2>stock-item-works!</h2>
+<div class="stock-con">
+  <div class="name"><h3>{{stock.name}}</h3>-<h4>({{stock.code}})</h4></div>
+  <!-- <div class="price" [class]="changes ? 'positive' : 'negative'" >$ {{price}}</div> -->
+  <div class="price" [class]="stock.isPositivechange() ? 'positive' : 'negative'" >$ {{stock.price}}</div>
+  <button (click)="toggleFavorite($event)"
+  [disabled]="stock.favorite">Add to Favorite</button>
+</div>
+

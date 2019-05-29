@@ -1,0 +1,21 @@
+.stock-con {
+  border: 1px solid black;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 10px;
+}
+.stock-con .name h3,.stock-con .name h4 {
+  display: inline-block;
+}
+
+
+.positive{
+  color:red;
+}
+.negative{
+  color:green;
+}
+
+.price{
+  color:yellow;
+}
