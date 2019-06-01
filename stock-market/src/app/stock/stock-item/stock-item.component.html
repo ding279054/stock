@@ -3,7 +3,12 @@
 <div class="stock-con">
   <div class="name"><h3>{{stock.name}}</h3>-<h4>({{stock.code}})</h4></div>
   <!-- <div class="price" [class]="changes ? 'positive' : 'negative'" >$ {{price}}</div> -->
-  <div class="price" [class]="stock.isPositivechange() ? 'positive' : 'negative'" >$ {{stock.price}}</div>
+  <!-- <div class="price" [class]="stock.isPositivechange() ? 'positive' : 'negative'" >$ {{stock.price}}</div> -->
+  <!-- <div class="price" [ngClass]="stockClasses" >$ {{stock.price}}</div> -->
+  <div class="price" [class.positive]="stock.isPositivechange()" [class.negative]="!stock.isPositivechange()"
+     >$ {{stock.price}}</div>
+  <!-- <div class="price" [ngStyle]="stockStyles">$ {{stock.price}}</div> -->
+
   <button (click)="toggleFavorite($event)"
   [disabled]="stock.favorite">Add to Favorite</button>
 </div>

@@ -8,7 +8,6 @@
   display: inline-block;
 }
 
-
 .positive{
   color:red;
 }
@@ -16,6 +15,11 @@
   color:green;
 }
 
-.price{
-  color:yellow;
-}
+
+.large-change{
+  font-size: 1.5em;
+};
+
+.small-change{
+  font-size: 0.8em;
+};
