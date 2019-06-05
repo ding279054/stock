@@ -1,4 +1,5 @@
 export class Stock {
+  // favorite = true;
   favorite = false;
 
   constructor(public name: string,

@@ -1,6 +1,9 @@
 
   <h2>stock-item-works!</h2>
-<div class="stock-con">
+<div class="stock-con" >
+    <!-- <div class="stock-con" *ngFor="let stock of stocks; even as isEven; index as i; trackBy: trackStockByCode" [class.even-item]="isEven"> -->
+  <!-- index:目前索引 even:雙數項目(從0起算) odd:奇數項目 first:第一個項目 last:最後一個項目 -->
+    <!-- <div class="stock-con" *ngFor="let stock of stocks; even as isEven; index as i" [class.even-item]="isEven"> -->
   <div class="name"><h3>{{stock.name}}</h3>-<h4>({{stock.code}})</h4></div>
   <!-- <div class="price" [class]="changes ? 'positive' : 'negative'" >$ {{price}}</div> -->
   <!-- <div class="price" [class]="stock.isPositivechange() ? 'positive' : 'negative'" >$ {{stock.price}}</div> -->
@@ -9,7 +12,14 @@
      >$ {{stock.price}}</div>
   <!-- <div class="price" [ngStyle]="stockStyles">$ {{stock.price}}</div> -->
 
-  <button (click)="toggleFavorite($event)"
+  <!-- <button (click)="toggleFavorite($event)"
+  [disabled]="stock.favorite">Add to Favorite</button> -->
+  <!-- <button (click)="toggleFavorite($event)"
+  *ngIf="stock.favorite">Add to Favorite</button> -->
+  <!-- <button (click)="toggleFavorite($event, i)" -->
+  <!-- <button (click)="toggleFavorite($event)" -->
+  <button (click)="onToggleFavorite($event)"
   [disabled]="stock.favorite">Add to Favorite</button>
+  <button (click)="changeStockPrice()"> change price</button>
 </div>
 
