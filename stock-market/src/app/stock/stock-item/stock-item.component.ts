@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy,
+        SimpleChanges, OnChanges, OnDestroy, DoCheck, AfterContentInit, AfterContentChecked,
+        AfterViewInit, AfterViewChecked } from '@angular/core';
 import { Stock } from '../../model/stock';
 
 @Component({
@@ -37,7 +39,8 @@ import { Stock } from '../../model/stock';
   }`] */
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class StockItemComponent implements OnInit {
+export class StockItemComponent implements OnInit, OnChanges, OnDestroy,
+            DoCheck, AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit  {
   // public stock: Stock;
   @Input() public stock: Stock;
   @Output() private toggleFavorite: EventEmitter<Stock>;
@@ -86,7 +89,31 @@ export class StockItemComponent implements OnInit {
     this.lastprice = 80;
     this.changes = this.price >= this.lastprice;
     this.favorite = false; */
+    console.log('StockItem component on Init');
   }
+
+  ngAfterViewInit(): void {
+    console.log('StockItem component After View Init');
+  }
+  ngAfterViewChecked(): void {
+    console.log('StockItem component After View Checkedc');
+  }
+  ngAfterContentInit(): void {
+    console.log('StockItem component After Content Init');
+  }
+  ngAfterContentChecked(): void {
+    console.log('StockItem component After Content Checked');
+  }
+  ngDoCheck(): void {
+    console.log('StockItem component Do Check');
+  }
+  ngOnDestroy(): void {
+    console.log('StockItem component On Destroy');
+  }
+  ngOnChanges(): void {
+    console.log('StockItem component On Changes');
+  }
+
 
   /* toggleFavorite(event) {
     console.log('toggling the favorite!', event);
@@ -113,5 +140,9 @@ export class StockItemComponent implements OnInit {
   changeStockPrice() {
     this.stock.price += 5;
   }
+
+
+
+
 
 }

@@ -1,4 +1,6 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, SimpleChanges, OnChanges,
+        OnDestroy, DoCheck, AfterContentInit, AfterContentChecked,
+        AfterViewInit, AfterViewChecked } from '@angular/core';
 import { Stock } from 'src/app/model/stock';
 
 @Component({
@@ -7,7 +9,9 @@ import { Stock } from 'src/app/model/stock';
   styleUrls: ['./app.component.css'],
   // encapsulation: ViewEncapsulation.None
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnChanges, OnDestroy,
+                                      DoCheck, AfterContentChecked, AfterContentInit,
+                                      AfterViewChecked, AfterViewInit {
   title = 'stock-market';
   public stockobj: Stock;
   public stock: Stock;
@@ -15,7 +19,32 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.stockobj = new Stock('股票公司input', 'TSC', 85, 80);
+    console.log('app component on Init');
   }
+
+  ngAfterViewInit(): void {
+    console.log('app component After View Init');
+  }
+  ngAfterViewChecked(): void {
+    console.log('app component After View Checkedc');
+  }
+  ngAfterContentInit(): void {
+    console.log('app component After Content Init');
+  }
+  ngAfterContentChecked(): void {
+    console.log('app component After Content Checked');
+  }
+  ngDoCheck(): void {
+    console.log('app component Do Check');
+  }
+  ngOnDestroy(): void {
+    console.log('app component On Destroy');
+  }
+  ngOnChanges(): void {
+    console.log('app component On Changes');
+  }
+
+
   // onToggle(stockobj: Stock) {
     onToggle(test) {
     // console.log('favorite for stock', stockobj, 'was triggered');
@@ -29,5 +58,8 @@ export class AppComponent implements OnInit {
     // ChangeDetectionStrategy.Default才會更新html
     // 若為ChangeDetectionStrategy.OnPush則值會改變,但html不會刷新
     this.stockobj.price += 10;
+  }
+  testMathod() {
+    console.log('testmathod in appcomponent triggered');
   }
 }

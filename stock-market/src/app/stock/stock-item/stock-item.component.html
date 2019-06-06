@@ -18,8 +18,9 @@
   *ngIf="stock.favorite">Add to Favorite</button> -->
   <!-- <button (click)="toggleFavorite($event, i)" -->
   <!-- <button (click)="toggleFavorite($event)" -->
-  <button (click)="onToggleFavorite($event)"
+  <!-- <button (click)="onToggleFavorite($event)"
   [disabled]="stock.favorite">Add to Favorite</button>
-  <button (click)="changeStockPrice()"> change price</button>
+  <button (click)="changeStockPrice()"> change price</button> -->
+  <ng-content></ng-content>
 </div>
 
