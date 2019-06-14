@@ -18,7 +18,7 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy,
   private counter = 1;
 
   ngOnInit(): void {
-    this.stockobj = new Stock('股票公司input', 'TSC', 85, 80);
+    this.stockobj = new Stock('股票公司input', 'TSC', 85, 80, 'none');
     console.log('app component on Init');
   }
 
@@ -52,7 +52,7 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy,
     this.stockobj.favorite = !this.stockobj.favorite;
   }
   changeStockObject() {
-    this.stockobj = new Stock('股票公司input' + this.counter++, 'TSC', 85, 80);
+    this.stockobj = new Stock('股票公司input' + this.counter++, 'TSC', 85, 80, 'none');
   }
   changeStockPrice() {
     // ChangeDetectionStrategy.Default才會更新html

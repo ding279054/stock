@@ -1,0 +1,32 @@
+<h2>
+  create stock form
+</h2>
+
+<div class="form-group">
+    <form [formGroup]="stockForm" (ngSubmit)="onSubmit()">
+      <div class="stock-name">
+        <input type="text"
+                placeholder="stock name"
+                name="stockName"
+                formControlName="name">
+      </div>
+      <div class="stock-code">
+          <input type="text"
+                  placeholder="stock code"
+                  formControlName="code">
+      </div>
+      <div class="stock-price">
+          <input type="number"
+                  placeholder="stock price"
+                  formControlName="price">
+      </div>
+  <!-- <button (click)="onSubmit()">建立股票</button> -->
+      <button type="submit()">送出</button>
+  </form>
+</div>
+<!-- <h4>Stock name is {{stock.name}}</h4> -->
+<p>Form Control value:{{stockForm.value | json}}</p>
+<p>Form Control status:{{stockForm.status | json}}</p>
+<!-- <p>Form Control value:{{nameControl.value | json}}</p>
+<p>Form Control status:{{nameControl.status | json}}</p> -->
+<!-- (input)="stock.name=$event.target.value"> -->

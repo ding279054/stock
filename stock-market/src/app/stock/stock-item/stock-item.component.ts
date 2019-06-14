@@ -65,9 +65,9 @@ export class StockItemComponent implements OnInit, OnChanges, OnDestroy,
   ngOnInit() {
     // this.stock = new Stock('股票測試公司', 'TSC', 85, 80);
     this.stocks = [
-      new Stock('股票測試公司1', 'TSC', 85, 80),
-      new Stock('股票測試公司2', 'SSC', 15, 20),
-      new Stock('股票測試公司3', 'LSC', 888, 777)
+      new Stock('股票測試公司1', 'TSC', 85, 80, ''),
+      new Stock('股票測試公司2', 'SSC', 15, 20, ''),
+      new Stock('股票測試公司3', 'LSC', 888, 777, '')
     ];
     const diff = (this.stock.price / this.stock.lastprice) - 1;
     const largeChange = Math.abs(diff) > 0.01;

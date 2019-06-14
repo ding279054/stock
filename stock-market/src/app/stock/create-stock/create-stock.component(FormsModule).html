@@ -1,0 +1,119 @@
+<h2>
+  create stock form
+</h2>
+
+<div class="form-group">
+  <form (ngSubmit)="createStock(stockForm)" #stockForm="ngForm">
+    <div ngModelGroup="stock">
+      <div>invail(內容錯誤無效)由綠變紅</div>
+      <div class="stock-name">
+        <!-- <input type="text"
+                placeholder="stock name"
+                [value]="stock.name"
+                (input)="stock.name=$event.target.value"> -->
+        <!-- <input type="text"
+                placeholder="stock name"
+                name="StockName"
+                [ngModel]="stock.name"
+                (ngModelChange)="stock.name=$event"> -->
+        <!-- <input type="text"
+                placeholder="stock name"
+                required
+                name="stockName"
+                #stockName="ngModel"
+                [(ngModel)]="stock.name"> -->
+        <input type="text"
+                placeholder="stock name"
+                required
+                name="name"
+                ngModel>
+                <!-- 使用ngModel一定要加name屬性 -->
+      </div>
+      <!-- 頁面載入就檢查 -->
+      <!-- <div *ngIf="stockName.errors && stockName?.errors.required">Stock Name is Mandatory</div> -->
+      <!-- <div>修改後由綠變紅</div> -->
+      <div class="stock-code">
+        <!-- <input type="text"
+                placeholder="stock code"
+                required
+                minlength="2"
+                name="stockCode"
+                #stockCode="ngModel"
+                [(ngModel)]="stock.code"> -->
+        <input type="text"
+                placeholder="stock code"
+                required
+                minlength="2"
+                name="code"
+                ngModel>
+      </div>
+      <!-- 欄位內容被修改且無效 -->
+      <!-- <div *ngIf="stockCode.dirty && stockCode.invalid">
+        <div *ngIf="stockCode?.errors.required">Stock Code is Mandatory</div>
+        <div *ngIf="stockCode?.errors.minlength">Stock Code must be atleast of length 2</div>
+      </div> -->
+      <div>visited且離開後由綠變紅,不管有無修改</div>
+      <div class="stock-price">
+        <!-- <input type="number"
+              placeholder="stock price"
+              name="stockPrice"
+              required
+              #stockPrice="ngModel"
+              [ngModel]="stock.price"
+              (ngModelChange)="setStockPrice($event)"> -->
+        <input type="number"
+              placeholder="stock price"
+              name=price
+              required
+              ngModel>
+      </div>
+      <!-- <div *ngIf="stockPrice.dirty && stockPrice.invalid">
+        <div *ngIf="stockPrice?.errors.required">Stock Price is Mandatory</div>
+      </div>
+ -->
+      <div class="stock-exchange">
+        <!-- <div>
+          <input type="radio"
+              name="StockExchange"
+              [(ngModel)]="stock.exchange"
+              value="NYSE">NYSE
+        </div>
+        <div>
+            <input type="radio"
+                name="StockExchange"
+                [(ngModel)]="stock.exchange"
+                value="NASDAQ">NASDAQ
+        </div>
+        <div>
+            <input type="radio"
+                name="StockExchange"
+                [(ngModel)]="stock.exchange"
+                value="OTHER">OTHER
+        </div> -->
+        <!-- <select name="StockE xchange" [(ngModel)]="stock.exchange">
+          <option value="NYSE">NYSE</option>
+          <option value="NASDAQ">NASDAQ</option>
+          <option value="OTHER">OTHER</option>
+        </select> -->
+        <!-- <select name="StockE exchange" [(ngModel)]="stock.exchange">
+            <option *ngFor="let exchange of exchanges" [ngValue]="exchange">{{exchange}}</option>
+        </select> -->
+        <select name="exchange" ngModel>
+            <option *ngFor="let exchange of exchanges" [ngValue]="exchange">{{exchange}}</option>
+        </select>
+      </div>
+      <div class="stock-onfirmed">
+          <input type="checkbox"
+              name="StockConfirm"
+              [(ngModel)]="confirmed">
+          確認選項無誤
+      </div>
+    </div>
+  </form>
+  <button [disabled]="!confirmed" type="submit">建立股票</button>
+  <button (click)="stock.name='test'">RESET STOCK NAME</button>
+</div>
+<!-- <h4>Stock name is {{stock.name}}</h4> -->
+<h4>Stock name is {{stock | json}}</h4>
+<h4>data has been confirmed: {{confirmed}}</h4>
+<!-- (input)="stock.name=$event.target.value"> -->
