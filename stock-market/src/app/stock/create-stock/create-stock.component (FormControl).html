@@ -1,0 +1,50 @@
+<h2>
+  create stock form
+</h2>
+
+<div class="form-group">
+    <form [formGroup]="stockForm" (ngSubmit)="onSubmit()">
+      <div class="stock-name">
+        <input type="text"
+                placeholder="stock name"
+                name="stockName"
+                formControlName="name">
+         <div *ngIf="stockForm.get('name').invalid && (stockForm.get('name').dirty || stockForm.get('name').touched)">
+           名稱不可空白</div>
+      </div>
+      <div class="stock-code">
+          <input type="text"
+                  placeholder="stock code"
+                  formControlName="code">
+
+          <div *ngIf="code.invalid && (code.dirty || code.touched)">
+                <div *ngIf="code.errors.required">代號不可空白</div>
+                <div *ngIf="code.errors.minlength">代號至少需兩碼</div>
+          </div>
+          <!-- 在.ts撰寫 get code() { return this.stockForm.get('code');} 可簡化get的使用  -->
+          <!-- <div *ngIf="stockForm.get('code').invalid && (stockForm.get('code').dirty || stockForm.get('code').touched)">
+              <div *ngIf="stockForm.get('code').errors.required">代號不可空白</div>
+              <div *ngIf="stockForm.get('code').errors.minlength">代號至少需兩碼</div>
+          </div> -->
+      </div>
+      <div class="stock-price">
+          <input type="number"
+                  placeholder="stock price"
+                  formControlName="price">
+          <div *ngIf="stockForm.get('price').invalid && (stockForm.get('price').dirty || stockForm.get('price').touched)">
+              <!-- 書本範例沒有用外層包住此兩個檢查,會出現錯誤 -->
+              <div *ngIf="stockForm.get('price').errors.required">價格不可空白</div>
+              <div *ngIf="stockForm.get('price').errors.min">價格不可小於0</div>
+          </div>
+
+      </div>
+  <!-- <button (click)="onSubmit()">建立股票</button> -->
+      <button type="submit()">送出</button>
+  </form>
+</div>
+<!-- <h4>Stock name is {{stock.name}}</h4> -->
+<p>Form Control value:{{stockForm.value | json}}</p>
+<p>Form Control status:{{stockForm.status | json}}</p>
+<!-- <p>Form Control value:{{nameControl.value | json}}</p>
+<p>Form Control status:{{nameControl.status | json}}</p> -->
+<!-- (input)="stock.name=$event.target.value"> -->

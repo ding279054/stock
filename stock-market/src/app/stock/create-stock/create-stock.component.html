@@ -4,24 +4,10 @@
 
 <div class="form-group">
     <form [formGroup]="stockForm" (ngSubmit)="onSubmit()">
-      <div class="stock-name">
-        <input type="text"
-                placeholder="stock name"
-                name="stockName"
-                formControlName="name">
-      </div>
-      <div class="stock-code">
-          <input type="text"
-                  placeholder="stock code"
-                  formControlName="code">
-      </div>
-      <div class="stock-price">
-          <input type="number"
-                  placeholder="stock price"
-                  formControlName="price">
-      </div>
-  <!-- <button (click)="onSubmit()">建立股票</button> -->
-      <button type="submit()">送出</button>
+      <button type="submit">送出</button>
+      <button type="button" (click)="resetForm()">重設</button>
+      <button type="button" (click)="loadStockFromServer()">從server載入股票</button>
+      <button type="button" (click)="patchStockForm()">股票補丁</button>
   </form>
 </div>
 <!-- <h4>Stock name is {{stock.name}}</h4> -->
