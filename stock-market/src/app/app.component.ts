@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation, OnInit, SimpleChanges, OnChanges,
         OnDestroy, DoCheck, AfterContentInit, AfterContentChecked,
         AfterViewInit, AfterViewChecked } from '@angular/core';
 import { Stock } from 'src/app/model/stock';
+import { MessageService } from '../app/services/message.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,15 @@ import { Stock } from 'src/app/model/stock';
   styleUrls: ['./app.component.css'],
   // encapsulation: ViewEncapsulation.None
 })
-export class AppComponent implements OnInit, OnChanges, OnDestroy,
+
+export class AppComponent implements OnInit {
+  title = 'stock-market';
+  constructor(public messageService: MessageService) {}
+  ngOnInit(): void {
+    this.messageService.message = 'Hello app message service';
+  }
+}
+/* export class AppComponent implements OnInit, OnChanges, OnDestroy,
                                       DoCheck, AfterContentChecked, AfterContentInit,
                                       AfterViewChecked, AfterViewInit {
   title = 'stock-market';
@@ -20,9 +29,9 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy,
   ngOnInit(): void {
     this.stockobj = new Stock('股票公司input', 'TSC', 85, 80, 'none');
     console.log('app component on Init');
-  }
+  } */
 
-  ngAfterViewInit(): void {
+ /*  ngAfterViewInit(): void {
     console.log('app component After View Init');
   }
   ngAfterViewChecked(): void {
@@ -42,10 +51,7 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy,
   }
   ngOnChanges(): void {
     console.log('app component On Changes');
-  }
-
-
-  // onToggle(stockobj: Stock) {
+  }  // onToggle(stockobj: Stock) {
     onToggle(test) {
     // console.log('favorite for stock', stockobj, 'was triggered');
     console.log('favorite for stock', test, 'was triggered');
@@ -62,4 +68,4 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy,
   testMathod() {
     console.log('testmathod in appcomponent triggered');
   }
-}
+} */

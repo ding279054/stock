@@ -115,12 +115,13 @@ export class StockItemComponent implements OnInit, OnChanges, OnDestroy,
   }
 
 
-  /* toggleFavorite(event) {
+
+/*   toggleFavorite(event) {
     console.log('toggling the favorite!', event);
     this.stock.favorite = !this.stock.favorite;
   } */
   // 加入最愛後disabled掉
- /*  toggleFavorite(event, index) {
+/*   toggleFavorite(event, index) {
     console.log('toggling the favorite!', index, event);
     this.stocks[index].favorite = !this.stocks[index].favorite;
   } */
@@ -141,6 +142,9 @@ export class StockItemComponent implements OnInit, OnChanges, OnDestroy,
     this.stock.price += 5;
   }
 
+  toggleFav(event) {
+    this.stock.favorite = !this.stock.favorite;
+}
 
 
 

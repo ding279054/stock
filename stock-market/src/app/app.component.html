@@ -3,12 +3,16 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
+  <h3>
+    app level: {{messageService.message}}
+  </h3>
   <!-- <app-stock-item [stock]="stockobj" (toggleFavorite)="onToggle($event)"></app-stock-item> -->
-  <app-stock-item [stock]="stockobj" (outputtest)="onToggle($event)">
+ <!--  <app-stock-item [stock]="stockobj" (outputtest)="onToggle($event)">
     <button (click)="testMathod()">with botton1</button>
   </app-stock-item>
   <app-stock-item [stock]="stockobj" (outputtest)="onToggle($event)">
-    no botton for you</app-stock-item>
+    no botton for you</app-stock-item> -->
+    <app-stock-list></app-stock-list>
     <app-create-stock></app-create-stock>
   <!-- <button (click)="changeStockObject()">change object</button>
   <button (click)="changeStockPrice()">price plus10</button> -->

@@ -21,3 +21,10 @@
 .stock-price .ng-touched {
   background-color: pink;
 } */
+
+.notable-people {
+  border: 5px solid black;
+  padding: 10px;
+  margin: 10px;
+  background-color: yellow;
+}
